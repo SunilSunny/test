@@ -1,0 +1,49 @@
+<div class="grid-container">
+  <form  class="" >
+    <div class="grid-x">
+      <div class="cell small-order-2 medium-order-1">
+        <h1>Contact</h1>
+        <h3>How can we help you transform today ?</h3>
+      </div>
+
+    </div>
+    <div class="grid-x">
+      <mat-form-field>
+        <input type="text" matInput placeholder="Name" [(ngModel)]="name" name="name">
+      </mat-form-field>
+    </div>
+    <div class="grid-x">
+      <mat-form-field>
+        <input matInput placeholder="Phone Number" type="number" [(ngModel)]="phone" name="phone">
+      </mat-form-field>
+    </div>
+
+    <div class="grid-x">
+        <mat-form-field class="mat-form-field">
+          <input matInput placeholder="Email address" type="Email" [formControl]="emailFormControl" [(ngModel)]="email" name="email">
+          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="grid-x">
+        <mat-form-field>
+          <textarea matInput placeholder="Message" [(ngModel)]="message" name="message"></textarea>
+        </mat-form-field>
+    </div>
+
+    <div class="grid-x">
+      <button  mat-button color="primary" (click)="send()">Send</button>
+      <button mat-button (click)="clear()">Clear</button>
+    </div>
+  </form>
+
+</div>
+
+
+
+
